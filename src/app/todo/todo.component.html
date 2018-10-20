@@ -1,0 +1,35 @@
+<ActionBar title="ToDo" icon="">
+    <ActionItem ios.position="right" class="">
+        <Label text="{{selectAll ? '&#xea10;': '&#xea11;' }}" class="icon td-margin" (tap)="selectAlltasks()" ></Label>
+    </ActionItem>
+
+    <ActionItem ios.position="right">
+        <Label text="&#xea0a;" class="icon td-margin" (tap)="addNewTask()" ></Label>
+    </ActionItem>
+</ActionBar>
+
+<ScrollView>
+    <StackLayout>
+        <GridLayout *ngFor="let task of tasks; let i=index">
+            <GridLayout *ngIf="valor === 'default', else filter" rows="*" columns="*, *, *" class="taskIndiviudal">
+                <Switch horizontalAlignment="left" [checked]="task.state === 'complete'" class="switch" (checkedChange)="selectTask($event, i)"></Switch>
+                <Label row="0" col="1"  [text]="task.task" horizontalAlignment="center"></Label>
+                <Label row="0" col="2" text="&#xea0f;" horizontalAlignment="right" class="icon" (tap)="removeTask(task.id)"></Label>
+            </GridLayout>
+
+            <ng-template #filter>
+                <GridLayout *ngIf="valor === task.state" rows="*" columns="*, *, *" class="taskIndiviudal">
+                    <Switch horizontalAlignment="left" [checked]="valor === 'complete'" class="switch" (checkedChange)="selectTask($event, i)"></Switch>
+                    <Label row="0" col="1"  [text]="task.task" horizontalAlignment="center"></Label>
+                    <Label row="0" col="2" text="&#xea0f;" horizontalAlignment="right" class="icon" (tap)="removeTask(task.id)"></Label>
+                </GridLayout>
+            </ng-template>
+        </GridLayout>
+    </StackLayout>
+</ScrollView>
+<GridLayout rows="*, *" columns="*, *, *, *" class="btn-actions primary">
+    <Button row="0" col="0" text="All" (tap)="valor = 'default'" class="btn btn-primary"></Button>
+    <Button row="0" col="1" text="Active" (tap)="valor = 'progress'" class="btn btn-primary"></Button>
+    <Button row="0" col="2" text="Completed" (tap)="valor = 'complete'" class="btn btn-primary"></Button>
+    <Button row="0" col="3" text="Clear Completed"  class="btn btn-primary" (tap)="removeTaskCompleted()"></Button>
+</GridLayout>
