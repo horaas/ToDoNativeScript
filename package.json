@@ -1,11 +1,11 @@
 {
     "nativescript": {
         "id": "org.nativescript.toDo",
-        "tns-android": {
-            "version": "4.2.0"
-        },
         "tns-ios": {
-            "version": "4.2.0"
+            "version": "5.0.0"
+        },
+        "tns-android": {
+            "version": "5.0.0"
         }
     },
     "description": "NativeScript Application",
@@ -21,17 +21,17 @@
         "@angular/platform-browser": "~6.1.0",
         "@angular/platform-browser-dynamic": "~6.1.0",
         "@angular/router": "~6.1.0",
-        "nativescript-angular": "~6.1.0",
+        "nativescript-angular": "^7.0.1",
         "nativescript-theme-core": "~1.0.4",
         "reflect-metadata": "~0.1.8",
         "rxjs": "~6.2.0",
-        "tns-core-modules": "~4.2.0",
+        "tns-core-modules": "^5.0.3",
         "zone.js": "^0.8.26"
     },
     "devDependencies": {
-        "typescript": "~2.7.2",
-        "nativescript-dev-typescript": "~0.7.0",
-        "@nativescript/schematics": "^0.3.4"
+        "@nativescript/schematics": "^0.3.4",
+        "nativescript-dev-typescript": "^0.7.6",
+        "typescript": "~2.7.2"
     },
     "readme": "NativeScript Application"
 }
